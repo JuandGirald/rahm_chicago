@@ -48,3 +48,5 @@ group :test do
   gem 'capybara'
 end
 
+gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
+
