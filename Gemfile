@@ -38,3 +38,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spork-rails'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+end
+
