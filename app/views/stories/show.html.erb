@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @story.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @story.last_name %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @story.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @story.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @story.state %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @story.email %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @story.zip %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @story.telephone %>
+</p>
+
+<p>
+  <strong>Story body:</strong>
+  <%= @story.story_body %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @story.photo_id %>
+</p>
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
