@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stories
+
   get 'static_pages/home'
 
   get "/blog" => redirect("/blog/")
