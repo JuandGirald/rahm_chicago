@@ -60,3 +60,6 @@ gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
 gem 'paperclip'
 gem 'aws-sdk'
 
+#Youtube api - upload videos
+gem 'youtube_it', '~> 2.4.0'
+

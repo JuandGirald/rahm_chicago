@@ -45,10 +45,20 @@
   <%= @story.story_body %>
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @story.photo_id %>
-</p>
+<% if @story.image? %>
+  <p>
+    <strong>Photo:</strong>
+    <%= image_tag @story.image.url(:square) %>
+  </p>
+<% end %>
+
+<% if @story.link? %>
+  <div class="row">
+    <div class="video-player">
+      <%= youtube_embed(@story.link) %>   
+    </div>
+  </div>  
+<% end%>
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
