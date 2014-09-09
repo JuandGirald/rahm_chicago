@@ -62,8 +62,8 @@
           <%= f.text_area :story_body, rows: 10 %>
         </div>
         <div class="field">
-          <%= f.label :photo_id %><br>
-          <%= f.check_box :photo_id %>
+          <%= f.label :image %><br />
+          <%= f.file_field :image %>
         </div>
         <div class="actions">
           <%= f.submit 'Create', class: 'btn btn-primary' %>
