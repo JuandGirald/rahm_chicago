@@ -52,3 +52,7 @@ end
 
 gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
 
+#upload images to s3
+gem 'paperclip'
+gem 'aws-sdk'
+

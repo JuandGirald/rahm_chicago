@@ -28,8 +28,7 @@
         <td><%= story.email %></td>
         <td><%= story.zip %></td>
         <td><%= story.telephone %></td>
-        <td><%= story.story_body %></td>
-        <td><%= story.photo_id %></td>
+        <td><%= image_tag story.image.url(:square) %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
