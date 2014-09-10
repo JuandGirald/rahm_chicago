@@ -27,6 +27,29 @@ RSpec.describe "Stories", :type => :request do
           expect { click_button submit }.to change(Story, :count).by(1)
         end
       end
+
+      describe "with a valid Yoube link" do
+        before do 
+          fill_in "First name",   with: "Jhon" 
+          fill_in "Link",         with: "https://www.youtube.com/watch?v=WpkDN78P884"
+        end 
+
+        it "create a story" do
+          expect { click_button submit }.to change(Story, :count).by(1)
+        end
+      end
+
+      describe "with an invalid Yoube link" do
+        before do 
+          fill_in "First name",   with: "Jhon" 
+          fill_in "Link",         with: "https://www.youtube.com/sdsa"
+          click_button submit
+        end 
+
+        it { should have_selector('div.alert.alert-danger') }
+        it { should have_content('Link is invalid.') }
+      end
+
     end
   end
 end
