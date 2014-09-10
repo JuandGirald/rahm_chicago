@@ -3,8 +3,8 @@ class Story < ActiveRecord::Base
   YT_LINK_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
   
   validates          :first_name, presence: true 
-  validates          :link, format: { with: YT_LINK_FORMAT, multiline: true }
-  before_validation  :link_validation, :on => :create
+  validates          :link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :link?
+  before_validation  :link_validation, :on => [:create, :update], :if => :link?
 
   has_attached_file :image, styles: {
     thumb: '100x100>',

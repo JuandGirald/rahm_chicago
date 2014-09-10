@@ -19,13 +19,15 @@
         <td><%= story.last_name %></td>
         <td><%= story.email %></td>
         <td><%= image_tag story.image.url(:square) if story.image? %></td>
-        <td>
-          <div class="yt_video thumbnail">
-            <a href="">
-              <img src="https://img.youtube.com/vi/<%= story.video_uid %>/mqdefault.jpg" class="yt_preview img-rounded" alt= '<%= story.first_name %>' data-uid= 'stroy.video_uid'>
-            </a>
-          </div>
-        </td>
+        <% if story.link? %>
+          <td>
+            <div class="yt_video thumbnail">
+              <a href="">
+                <img src="https://img.youtube.com/vi/<%= story.video_uid %>/mqdefault.jpg" class="yt_preview img-rounded" alt= '<%= story.first_name %>' data-uid= 'stroy.video_uid'>
+              </a>
+            </div>
+          </td>
+        <% end %>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
