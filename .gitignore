@@ -17,3 +17,5 @@
 
 #Ignore Env variables
 /config/local_env.yml
+
+*/.Ds_store
