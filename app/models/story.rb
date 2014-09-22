@@ -5,11 +5,11 @@ class Story < ActiveRecord::Base
 
   validates         :first_name, :last_name, :street_address, :city, :state, 
                     :zip, presence: true 
-  validates         :link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :link?
+  validates         :video_link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :video_link?
   validates         :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX }
 
-  before_validation :link_validation, :on => [:create, :update], :if => :link?
+  before_validation :link_validation, :on => [:create, :update], :if => :video_link?
   geocoded_by :geocode_search
   after_validation :geocode, :if => :zip_changed?
 
@@ -24,11 +24,11 @@ class Story < ActiveRecord::Base
 
   private
     def link_validation
-      uid = link.match(YT_LINK_FORMAT)
+      uid = video_link.match(YT_LINK_FORMAT)
       self.video_uid = uid[2] if uid && uid[2]
      
       if self.video_uid.to_s.length != 11
-        self.errors.add(:link, 'is invalid.')
+        self.errors.add(:video_link, 'is invalid.')
         false
       end
     end

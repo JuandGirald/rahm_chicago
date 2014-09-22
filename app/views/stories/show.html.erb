@@ -50,10 +50,10 @@
   </p>
 <% end %>
 
-<% if @story.link? %>
+<% if @story.video_link? %>
   <div class="row">
     <div class="video-player">
-      <%= youtube_embed(@story.link) %>   
+      <%= youtube_embed(@story.video_link) %>   
     </div>
   </div>  
 <% end%>

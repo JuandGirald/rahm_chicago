@@ -20,7 +20,7 @@
         <td><%= story.last_name %></td>
         <td><%= story.email %></td>
         <td><%= image_tag story.image.url(:square) if story.image? %></td>
-        <% if story.link? %>
+        <% if story.video_link? %>
           <td>
             <div class="yt_video thumbnail">
               <a href="">
