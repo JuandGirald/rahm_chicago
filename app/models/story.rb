@@ -1,10 +1,14 @@
 class Story < ActiveRecord::Base
   
   YT_LINK_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
-  
-  validates          :first_name, presence: true 
-  validates          :link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :link?
-  before_validation  :link_validation, :on => [:create, :update], :if => :link?
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
+  validates         :first_name, :last_name, :street_address, :city, :state, 
+                    :zip, presence: true 
+  validates         :link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :link?
+  validates         :email, presence: true, 
+                    format: { with: VALID_EMAIL_REGEX }
+  before_validation :link_validation, :on => [:create, :update], :if => :link?
 
   has_attached_file :image, styles: {
     thumb: '100x100>',

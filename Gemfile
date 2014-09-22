@@ -63,3 +63,4 @@ gem 'aws-sdk'
 #Youtube api - upload videos
 gem 'youtube_it', '~> 2.4.0'
 
+gem 'simple_form'

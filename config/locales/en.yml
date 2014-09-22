@@ -20,4 +20,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        story:
+          attributes:
+            first_name:
+              blank: "(Please enter a valid First Name)"
+            last_name:
+              blank: "(Please enter a valid Last Name)"
+            street_address:
+              blank: "(Please enter a valid Street Address)"
+            email:
+              blank: "(Please enter a valid Email Address)"
+            city:
+              blank: "(Please enter a valid City)"
+            state:
+              blank: "(Email Address Please enter a valid State)"
+            zip:
+              blank: "(Please enter a valid Zip Code)"
