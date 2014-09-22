@@ -8,7 +8,10 @@ class Story < ActiveRecord::Base
   validates         :link, format: { with: YT_LINK_FORMAT, multiline: true }, :if => :link?
   validates         :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX }
+
   before_validation :link_validation, :on => [:create, :update], :if => :link?
+  geocoded_by :geocode_search
+  after_validation :geocode, :if => :zip_changed?
 
   has_attached_file :image, styles: {
     thumb: '100x100>',
@@ -27,6 +30,14 @@ class Story < ActiveRecord::Base
       if self.video_uid.to_s.length != 11
         self.errors.add(:link, 'is invalid.')
         false
+      end
+    end
+
+    def geocode_search
+      begin
+        self.zip.to_region  
+      rescue ArgumentError
+        "Chicago, IL"
       end
     end
 end

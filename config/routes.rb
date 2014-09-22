@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :stories
-
-  get 'static_pages/home'
+  
+  resources :stories do
+    get 'zip_code', :on => :collection
+  end
 
   get "/blog" => redirect("/blog/")
 

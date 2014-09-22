@@ -7,6 +7,15 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
+  def zip_code
+    if params[:search].present?
+      address = zip_to_address(params[:search])
+      @stories = Story.near(address, 2)
+    else
+      @stories = Story.all
+    end
+  end
+
   # GET /stories/1
   # GET /stories/1.json
   def show
@@ -72,5 +81,13 @@ class StoriesController < ApplicationController
       params.require(:story).permit(:first_name, :last_name, :street_address, :city, :state, 
                                     :email, :zip, :telephone, :story_body, :photo_id, :link,
                                     :image)
+    end
+
+    def zip_to_address(zip)
+      begin
+        zip.to_region  
+      rescue ArgumentError
+        ""
+      end
     end
 end
