@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909193539) do
+ActiveRecord::Schema.define(version: 20140922165957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "issues", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "title"
+    t.string   "status"
+    t.text     "description"
+    t.text     "resolution"
+    t.text     "notes"
+    t.boolean  "read_more"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", force: true do |t|
     t.string   "first_name"
@@ -35,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140909193539) do
     t.datetime "image_updated_at"
     t.string   "link"
     t.string   "video_uid"
+    t.boolean  "published",          default: false
   end
 
 end
