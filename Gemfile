@@ -64,3 +64,9 @@ gem 'aws-sdk'
 gem 'youtube_it', '~> 2.4.0'
 
 gem 'simple_form'
+
+#Geocoding for rails
+gem 'geocoder'
+
+#ZipCode convertion
+gem 'area'

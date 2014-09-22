@@ -1,0 +1,33 @@
+<%= link_to 'All stories', stories_path %></td>
+  
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <div class="col-xs-4">
+        <%= form_tag zip_code_stories_path, :method => :get do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "ZipCode Search", class: 'btn btn-primary' , :name => nil %>
+        <% end %>        
+      </div>
+    </div>
+      
+  </div>
+  
+  <% @stories.each do |story| %>
+    <div class="row">
+      <div class="col-xs-4">
+        <h4>First Name</h4>
+        <%= story.first_name %>
+      </div>
+      <div class="col-xs-4">
+        <h4>Last Name</h4>
+        <%= story.last_name %>
+      </div>
+      <div class="col-xs-4 zip">
+        <h4>Zip Code</h4>
+        <%= story.zip %>
+      </div>
+    </div>
+  <% end %>
+  
+</div>
