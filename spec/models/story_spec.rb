@@ -7,6 +7,12 @@ describe Story do
   subject { @story }
 
   it { should respond_to(:first_name) }
+  it { should respond_to(:last_name) }
+  it { should respond_to(:email) }
+  it { should respond_to(:zip) }
+  it { should respond_to(:street_address) }
+  it { should respond_to(:state) }
+  it { should respond_to(:city) }
 
   it { should be_valid }
 
